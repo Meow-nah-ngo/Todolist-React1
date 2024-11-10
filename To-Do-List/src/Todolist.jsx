@@ -49,18 +49,21 @@ function Todolsit(){
     return(
     
     <div className="To-Do-List">
-        <h2>My</h2>
-        <h1>To-Do-List</h1>
+        <header className="todo-header">
+            <h2>My daily</h2>
+            <h1>To-Do-List</h1>
+        </header>
         <div>
-            <input type="text"
-            placeholder="Enter a task..."
+            <input 
+            type="text"
+            placeholder="Type"
             value={newTask}
             onChange={handleInputChange}
             />
             <button 
             className="add-button"
             onClick={addTask}>
-                Add
+                +
             </button>
         </div>
 
@@ -68,10 +71,6 @@ function Todolsit(){
             {tasks.map((task, index) =>
                 <li key={index}>
                     <span className="text">{task}</span>
-                    <button className="delete-button"
-                    onClick={() => deleteTask(index)}>
-                        Delete
-                    </button>
                     <button className="move-button"
                     onClick={() => moveTaskUP(index)}>
                         UP
@@ -79,6 +78,13 @@ function Todolsit(){
                     <button className="move-button"
                     onClick={() => moveTaskDown(index)}>
                         Down
+                    </button>
+                    <button className="delete-button"
+                    onClick={() => deleteTask(index)}>
+                        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete" />
+                        <span class="material-symbols-outlined">
+                            delete
+                        </span>
                     </button>
                 </li>
             )}
